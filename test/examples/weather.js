@@ -11,7 +11,6 @@ exports.currentWeatherExample = {
       icon: '03d'
     }
   ],
-  visibility: 10000,
   wind: {
     speed: 8.2,
     deg: 100
@@ -20,3 +19,5 @@ exports.currentWeatherExample = {
     all: 40
   }
 };
+
+exports.nextFiveDaysForecastExample = { list: [exports.currentWeatherExample] };
