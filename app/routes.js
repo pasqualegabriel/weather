@@ -1,6 +1,7 @@
-const weatherController = require('./controllers/weather');
+const { getLocation, getCurrentWeather, getForecast } = require('./controllers/weather');
 
 exports.init = app => {
-  app.get('/api/location', weatherController.getLocation);
-  app.get('/api/current', weatherController.getCurrentWeather);
+  app.get('/api/location', getLocation);
+  app.get('/api/current', getCurrentWeather);
+  app.get('/api/forecast', getForecast);
 };

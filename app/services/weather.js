@@ -1,10 +1,10 @@
 const { request } = require('../helpers/request'),
-  { GET, currentWeatherPath } = require('../constants'),
+  { GET } = require('../constants'),
   config = require('../../config');
 
-exports.getCurrentWeather = city =>
+exports.getWeather = (city, path) =>
   request({
-    url: `${config.common.api.currentWeatherPath}${currentWeatherPath}`,
+    url: `${config.common.api.currentWeatherPath}${path}`,
     method: GET,
     qs: {
       q: city,
