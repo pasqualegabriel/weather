@@ -1,9 +1,10 @@
 const { request } = require('../helpers/request'),
-  { GET, ipPath } = require('../constants');
+  { GET } = require('../constants'),
+  config = require('../../config');
 
 exports.getIp = () =>
   request({
-    url: ipPath,
+    url: config.common.api.ipPath,
     method: GET,
     json: true
   });

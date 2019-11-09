@@ -1,9 +1,10 @@
 const { request } = require('../helpers/request'),
-  { GET, geolocationPath } = require('../constants');
+  { GET, geolocationPath } = require('../constants'),
+  config = require('../../config');
 
 exports.getLocation = ip =>
   request({
-    url: `${geolocationPath}${ip}`,
+    url: `${config.common.api.geolocationPath}${geolocationPath}/${ip}`,
     method: GET,
     json: true
   });

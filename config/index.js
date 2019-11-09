@@ -30,9 +30,12 @@ const assignObject = (target, source) => {
 // .env
 const config = {
   common: {
-    database: {},
-    api: {},
-    rollbar: {}
+    api: {
+      ipPath: process.env.IP_PATH,
+      geolocationPath: process.env.GEOLOCATION_PATH,
+      currentWeatherPath: process.env.CURRENT_WEATHER_PATH,
+      weatherAppid: process.env.WEATHER_APPID
+    }
   }
 };
 

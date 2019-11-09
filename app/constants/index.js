@@ -1,4 +1,4 @@
 exports.GET = 'get';
 
-exports.ipPath = 'http://ipv4bot.whatismyipaddress.com/';
-exports.geolocationPath = 'http://ip-api.com/json/';
+exports.geolocationPath = '/json';
+exports.currentWeatherPath = '/data/2.5/weather';
