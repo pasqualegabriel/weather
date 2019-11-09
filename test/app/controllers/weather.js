@@ -61,19 +61,19 @@ describe('weather controller', () => {
     it('Should get the current location by ip', async () => {
       ipRouteMock();
       geolocationRouteMock();
-      const res = await chai.request(server).get('/api/location');
+      const res = await chai.request(server).get('/api/v1/location');
       res.should.have.status(200);
       res.body.body.city.should.be.equal(cityExample);
     });
     it('Should throw an error when the ip route is not available', async () => {
       ipRouteMockError();
-      const res = await chai.request(server).get('/api/location');
+      const res = await chai.request(server).get('/api/v1/location');
       res.should.have.status(500);
     });
     it('Should throw an error when the geolocation route is not available', async () => {
       ipRouteMock();
       geolocationRouteMockError();
-      const res = await chai.request(server).get('/api/location');
+      const res = await chai.request(server).get('/api/v1/location');
       res.should.have.status(500);
     });
   });
@@ -83,7 +83,7 @@ describe('weather controller', () => {
       ipRouteMock();
       geolocationRouteMock();
       currentWeatherRouteMock(currentWeatherPath, currentWeatherExample);
-      const res = await chai.request(server).get('/api/current');
+      const res = await chai.request(server).get('/api/v1/current');
       res.should.have.status(200);
       res.body.body.should.have.property('weather');
       res.body.body.should.have.property('wind');
@@ -93,7 +93,7 @@ describe('weather controller', () => {
       ipRouteMock();
       geolocationRouteMock();
       currentWeatherRouteMockError(currentWeatherPath);
-      const res = await chai.request(server).get('/api/current');
+      const res = await chai.request(server).get('/api/v1/current');
       res.should.have.status(500);
     });
   });
@@ -103,7 +103,7 @@ describe('weather controller', () => {
       ipRouteMock();
       geolocationRouteMock();
       currentWeatherRouteMock(forecastPath, nextFiveDaysForecastExample);
-      const res = await chai.request(server).get('/api/forecast');
+      const res = await chai.request(server).get('/api/v1/forecast');
       res.should.have.status(200);
       res.body.body.should.have.property('list');
       res.body.body.list[0].should.have.property('weather');
@@ -114,7 +114,7 @@ describe('weather controller', () => {
       ipRouteMock();
       geolocationRouteMock();
       currentWeatherRouteMockError(forecastPath);
-      const res = await chai.request(server).get('/api/forecast');
+      const res = await chai.request(server).get('/api/v1/forecast');
       res.should.have.status(500);
     });
   });
